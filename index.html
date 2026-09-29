@@ -371,7 +371,8 @@ section{padding:44px 18px;}
     <button class="btn ghost" style="width:100%;margin-top:10px;" onclick="doLogout()">Выйти</button>
   </div>
 </div>
-
+<div class="chat-fab" onclick="openChat()"><span class="chat-fab-label">Чат</span><button class="chat-fab-btn" title="Чат"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="chat-badge" id="chatBadge">0</span></button></div>
+<div class="chat-overlay" id="chatOverlay" onclick="if(event.target===this)closeChat()"><div class="chat-modal"><div class="chat-side"><div class="chat-side-header"><h3>💬 Чат</h3><p id="chatSideSub">Выбери собеседника</p></div><div class="chat-users" id="chatUsers"></div></div><div class="chat-main"><div class="chat-main-header"><div><h4 id="chatWithName">Чат</h4><p id="chatWithRole"></p></div><button class="chat-close" onclick="closeChat()">×</button></div><div class="chat-body" id="chatBody"><div class="chat-empty">Выбери собеседника слева</div></div><div class="chat-input-row"><input type="text" id="chatInput" placeholder="Написать сообщение..." maxlength="2000" onkeydown="if(event.key==='Enter')sendChatMessage()"><button onclick="sendChatMessage()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.js"></script>
 <script>
 const SUPABASE_CONFIG={url:'https://ykptxzyqncsvdxvzjzgu.supabase.co',key:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlrcHR4enlxbmNzdmR4dnpqemd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAzNjMwMTgsImV4cCI6MjEwNTkzOTAxOH0.o3Fk5JTRLQOAThMASmojII19qslzOX52ATaAcqh7mb0'};
