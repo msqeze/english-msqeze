@@ -202,7 +202,7 @@ section{padding:44px 18px;}
 .cinema-play-btn{width:50px;height:50px;}
 }
 .board-wrap{position:relative;background:#fafafb;border-radius:20px;overflow:hidden;border:2px solid var(--border);height:calc(100vh - 140px);min-height:520px;}
-.board-viewport{position:absolute;inset:0;overflow:auto;cursor:default;}
+section:has(.board-wrap){max-width:none !important;padding-left:20px !important;padding-right:20px !important;}.board-viewport{position:absolute;inset:0;overflow:auto;cursor:default;}
 .board-canvas{position:relative;background-image:linear-gradient(rgba(255,95,162,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,95,162,0.08) 1px,transparent 1px);background-size:40px 40px;transform-origin:0 0;width:2000px;height:1500px;}
 .board-zoom{position:absolute;bottom:16px;left:16px;z-index:30;display:flex;gap:6px;background:#fff;padding:8px;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.1);align-items:center;}
 .board-zoom button{width:36px;height:36px;border:none;border-radius:10px;background:var(--pink-light);color:var(--pink);font-size:18px;font-weight:900;cursor:pointer;transition:0.2s;display:flex;align-items:center;justify-content:center;padding:0;}
@@ -1961,6 +1961,7 @@ async function checkEraseAt(e){
   if(erased)await loadBoardStickers();
 }
 async function initBoardRealtime(){
+  boardZoomLevel=100;applyBoardZoom();
   setBoardMode('select');
   await loadBoardStickers();
   if(boardChannelStickers){try{sb.removeChannel(boardChannelStickers);}catch(e){}}
